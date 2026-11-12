@@ -1,0 +1,485 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BewerbungsGlanz – Deine Zukunft beginnt hier</title>
+<style>
+:root{--green:#567d6b;--dark:#263c32;--cream:#faf8f3}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:var(--dark);line-height:1.5}
+header{background:white;padding:20px 5%;display:flex;justify-content:space-between;gap:15px;align-items:center}
+header strong{color:var(--green);font-size:23px}
+nav a{margin-left:14px;color:var(--dark);text-decoration:none}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#e2eee6,#faf8f3)}
+.hero h1{font-size:clamp(30px,5vw,50px);max-width:750px;margin:10px auto}
+.hero p{max-width:650px;margin:15px auto 25px}
+button,.button{background:var(--green);color:white;border:0;border-radius:9px;padding:12px 19px;font:inherit;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+button:hover,.button:hover{background:#3d6151}
+.wrap{max-width:1000px;margin:auto;padding:45px 20px}
+h2{text-align:center}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card,.form,.feedback{background:white;border:1px solid #dce7dd;border-radius:15px;padding:23px}
+.price{font-size:26px;font-weight:bold;color:var(--green)}
+.form{max-width:780px;margin:20px auto}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+label{display:block;font-weight:bold;margin:13px 0 5px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #b9cabe;border-radius:8px;font:inherit}
+textarea{min-height:95px}
+.notice{background:#edf4ee;padding:13px;border-radius:9px;margin:20px 0;font-size:14px}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+.tabs button[aria-pressed="false"]{background:#e4ece5;color:var(--dark)}
+.template-options{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.template-options button[aria-pressed="false"]{background:#e4ece5;color:var(--dark)}
+fieldset{border:1px solid #dce7dd;border-radius:10px;margin:20px 0;padding:15px}
+legend{font-weight:bold}
+.check-grid{display:flex;flex-wrap:wrap;gap:12px}
+.check-grid label{font-weight:normal;margin:0}
+.check-grid input{width:auto}
+[hidden]{display:none!important}
+.preview{display:none;background:white;width:210mm;max-width:100%;min-height:297mm;margin:25px auto;box-shadow:0 4px 20px #0002;overflow-wrap:anywhere}
+.preview.visible{display:block}
+.cv-layout{display:grid;grid-template-columns:30% 70%;min-height:297mm}
+.cv-side{background:#567d6b;color:white;padding:35px 20px}
+.cv-side h3{border-bottom:1px solid #ffffff80;padding-bottom:7px;font-size:14px}
+.cv-side p{font-size:13px;white-space:pre-line}
+.cv-main{padding:40px 30px}
+.cv-main h2{text-align:left;color:#567d6b;font-size:29px;margin:0}
+.cv-main h3{color:#567d6b;border-bottom:1px solid #ddd;padding-bottom:7px;margin-top:25px}
+.cv-main p{white-space:pre-line;font-size:14px}
+.cv-modern .cv-layout{display:flex;flex-direction:column}
+.cv-modern .cv-main{order:1}
+.cv-modern .cv-side{order:2;background:#edf0f2;color:#34414b}
+.cv-modern .cv-main h2,.cv-modern .cv-main h3{color:#34414b}
+.cv-classic .cv-side{background:#eee5da;color:#514438}
+.cv-classic .cv-main h2,.cv-classic .cv-main h3{color:#88705c;font-family:Georgia,serif}
+.letter{padding:45px 55px;font-family:Arial,sans-serif}
+.letter h2{text-align:left;color:#567d6b}
+.letter textarea{border:1px solid #ddd;min-height:650px;line-height:1.7;resize:vertical}
+#printLetterText{display:none;white-space:pre-wrap;font:14px/1.65 Arial,sans-serif;overflow-wrap:anywhere}
+.actions{text-align:center;margin:20px}
+.feedback{max-width:600px;margin:35px auto;text-align:center}
+.stars{display:flex;justify-content:center;gap:5px}
+.stars button{background:transparent;color:#aaa;font-size:30px;padding:3px 8px}
+.stars button.active{color:#e0a536}
+footer{text-align:center;background:var(--dark);color:white;padding:25px}
+footer a{color:white;margin:0 10px}
+@media(max-width:700px){
+header{display:block;text-align:center}
+nav{margin-top:10px}
+.cards,.fields{grid-template-columns:1fr}
+.cv-side{padding:18px 10px}
+.cv-main{padding:20px 12px}
+.cv-main h2{font-size:22px}
+.letter{padding:20px}
+}
+@media print{
+@page{size:A4;margin:0}
+header,.hero,.wrap,footer,.actions,.feedback{display:none!important}
+body{background:white;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.preview{display:none!important;box-shadow:none;margin:0;width:210mm;max-width:none;min-height:297mm}
+.preview.print-target{display:block!important}
+.cv-layout{min-height:297mm}
+.cv-side{background:#567d6b!important;color:white!important}
+.cv-classic .cv-side{background:#eee5da!important;color:#514438!important}
+.cv-modern .cv-side{background:#edf0f2!important;color:#34414b!important}
+.letter{padding:20mm}
+.letter textarea{display:none!important}
+#printLetterText{display:block!important}
+.letter h2,.letter p{display:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+<strong>✨ BewerbungsGlanz</strong>
+<nav>
+<a href="#erstellen">Erstellen</a>
+<a href="#angebote">Angebote</a>
+</nav>
+</header>
+
+<section class="hero">
+<p>✨ DEIN DIGITALER BEWERBUNGSBEGLEITER</p>
+<h1>Deine Zukunft beginnt mit einer starken Bewerbung.</h1>
+<p>Erstelle deinen Lebenslauf und dein Anschreiben. Einfach, modern und individuell.</p>
+<a href="#erstellen" class="button">Jetzt kostenlos ausprobieren →</a>
+</section>
+
+<section class="wrap" id="angebote">
+<h2>Unsere geplanten Angebote</h2>
+<div class="cards">
+<div class="card"><h3>🌿 Lebenslauf</h3><p>24 Stunden beliebig viele Lebensläufe erstellen und als PDF speichern.</p><div class="price">9,99 €</div><p><strong>Einmalig · Kein Abo</strong></p></div>
+<div class="card"><h3>✍️ Anschreiben</h3><p>24 Stunden beliebig viele Anschreiben erstellen und bearbeiten.</p><div class="price">4,99 €</div><p><strong>Einmalig · Kein Abo</strong></p></div>
+<div class="card"><h3>💚 Komplettpaket</h3><p>Beide Generatoren 24 Stunden unbegrenzt nutzen.</p><div class="price">12,99 €</div><p><strong>Einmalig · Kein Abo</strong></p></div>
+<div class="card"><h3>✨ Persönlicher Service</h3><p>Einmalige persönliche Überarbeitung deiner Unterlagen (geplant).</p><div class="price">29,99 €</div><p><strong>Einmalige Leistung · Kein Abo</strong></p></div>
+</div>
+<div class="notice" style="text-align:center"><strong>Faire Preise. Keine Abofalle.</strong><br>Keine automatische Verlängerung und keine monatlichen Gebühren. Der geplante Zugang endet automatisch 24 Stunden nach Kauf. Bereits heruntergeladene PDFs bleiben nutzbar.<br><small>Alle Preise sind Planung. Diese Testversion ist kostenlos und enthält weder Bezahlung noch eine 24-Stunden-Freischaltung.</small></div>
+</section>
+
+<section class="wrap" id="erstellen">
+<h2>Deine Bewerbungsunterlagen</h2>
+<p style="text-align:center">Wähle aus, was du erstellen möchtest.</p>
+<div class="tabs">
+<button type="button" id="cvTab" aria-pressed="true">Lebenslauf</button>
+<button type="button" id="letterTab" aria-pressed="false">Anschreiben</button>
+</div>
+
+<div id="cvFormArea" class="form">
+<h3>Lebenslauf erstellen</h3>
+<p>Wähle dein Design:</p>
+<div class="template-options">
+<button type="button" data-theme="elegant" aria-pressed="true">🌿 Elegant</button>
+<button type="button" data-theme="modern" aria-pressed="false">Modern</button>
+<button type="button" data-theme="classic" aria-pressed="false">Klassisch</button>
+</div>
+
+<form id="cvform">
+<h3>Persönliche Daten</h3>
+<div class="fields">
+<div><label for="first">Vorname *</label><input id="first" required></div>
+<div><label for="last">Nachname *</label><input id="last" required></div>
+<div><label for="birth">Geburtsdatum</label><input id="birth" placeholder="TT.MM.JJJJ"></div>
+<div><label for="birthplace">Geburtsort</label><input id="birthplace"></div>
+<div><label for="street">Straße und Hausnummer</label><input id="street"></div>
+<div><label for="zip">Postleitzahl</label><input id="zip"></div>
+<div><label for="city">Wohnort</label><input id="city"></div>
+<div><label for="phone">Telefonnummer</label><input id="phone" type="tel"></div>
+<div><label for="email">E-Mail</label><input id="email" type="email"></div>
+</div>
+
+<fieldset>
+<legend>Führerschein (freiwillig)</legend>
+<label><input type="checkbox" id="haslicense" style="width:auto"> Führerschein vorhanden</label>
+<div id="licenseOptions" hidden>
+<div class="check-grid">
+<label><input type="checkbox" value="AM"> AM</label>
+<label><input type="checkbox" value="A1"> A1</label>
+<label><input type="checkbox" value="A2"> A2</label>
+<label><input type="checkbox" value="A"> A</label>
+<label><input type="checkbox" value="B"> B</label>
+<label><input type="checkbox" value="B197"> B197</label>
+<label><input type="checkbox" value="BE"> BE</label>
+<label><input type="checkbox" value="C"> C</label>
+<label><input type="checkbox" value="CE"> CE</label>
+<label><input type="checkbox" value="D"> D</label>
+<label><input type="checkbox" value="DE"> DE</label>
+</div>
+</div>
+</fieldset>
+
+<label for="role">Gewünschter Beruf *</label>
+<input id="role" required>
+<label for="experience">Berufserfahrung</label>
+<textarea id="experience"></textarea>
+<label for="education">Ausbildung und Schulbildung</label>
+<textarea id="education"></textarea>
+<label for="skills">Kenntnisse und Stärken</label>
+<textarea id="skills"></textarea>
+
+<div class="notice">Kostenlose Demo. Bitte nur erfundene Daten verwenden.</div>
+<button type="submit">Lebenslauf erstellen</button>
+</form>
+</div>
+
+<div id="letterFormArea" class="form" hidden>
+<h3>✨ Anschreiben automatisch erstellen</h3>
+<p>Beantworte ein paar Fragen. BewerbungsGlanz formuliert daraus einen ersten Entwurf.</p>
+<form id="letterform">
+<div class="fields">
+<div><label for="lfname">Dein Name *</label><input id="lfname" required placeholder="Max Mustermann"></div>
+<div><label for="lcompany">Unternehmen *</label><input id="lcompany" required placeholder="Muster GmbH"></div>
+<div><label for="lrole">Gewünschte Stelle *</label><input id="lrole" required placeholder="Produktionsmitarbeiter"></div>
+<div><label for="lperson">Ansprechpartner (optional)</label><input id="lperson" placeholder="Frau Müller"></div>
+<div><label for="lcity">Ort des Unternehmens</label><input id="lcity" placeholder="Saarbrücken"></div>
+<div><label for="ldate">Datum</label><input id="ldate" type="date"></div>
+</div>
+
+<label for="lwhy">Warum möchtest du dort arbeiten? *</label>
+<textarea id="lwhy" required placeholder="Mich interessieren die Aufgaben und ich möchte meine Erfahrung einbringen."></textarea>
+
+<label for="lexp">Welche Erfahrungen bringst du mit?</label>
+<textarea id="lexp" placeholder="Ich habe bereits in der Produktion gearbeitet und Anlagen bedient."></textarea>
+
+<label for="lstrength">Was sind deine Stärken?</label>
+<textarea id="lstrength" placeholder="Ich arbeite zuverlässig, sorgfältig und gerne im Team."></textarea>
+
+<label for="lsituation">Deine berufliche Situation</label>
+<select id="lsituation">
+<option value="experienced">Ich habe Berufserfahrung</option>
+<option value="change">Ich bin Quereinsteiger/in</option>
+<option value="beginner">Ich bin Berufseinsteiger/in</option>
+</select>
+<label for="lad">Stellenanzeige (freiwillig)</label>
+<textarea id="lad" placeholder="Füge hier die Aufgaben und Anforderungen aus der Stellenanzeige ein."></textarea>
+<p><small>Der Generator erkennt einige typische Begriffe, versteht aber keine Stellenanzeigen wie eine KI. Er erfindet keine Qualifikationen.</small></p>
+<label for="lstyle">Wie soll das Anschreiben klingen?</label>
+<select id="lstyle">
+<option value="classic">Klassisch und professionell</option>
+<option value="modern">Modern und selbstbewusst</option>
+<option value="personal">Freundlich und persönlich</option>
+</select>
+
+<div class="notice">
+Der Text wird ohne KI aus deinen Angaben und passenden Textbausteinen zusammengestellt.
+Es ist noch keine KI eingebaut. Prüfe den Entwurf vor einer echten Bewerbung.
+Bitte nur erfundene Testdaten verwenden.
+</div>
+<button type="submit">Anschreiben formulieren</button>
+</form>
+</div>
+</section>
+
+<section id="cvPreview" class="preview" aria-label="Lebenslauf-Vorschau">
+<div class="cv-layout">
+<aside class="cv-side">
+<h3>KONTAKT</h3><p id="pcontact"></p>
+<div id="personalBlock" hidden><h3>PERSÖNLICHES</h3><p id="ppersonal"></p></div>
+<div id="licenseBlock" hidden><h3>FÜHRERSCHEIN</h3><p id="plicense"></p></div>
+<div id="skillsBlock" hidden><h3>KENNTNISSE</h3><p id="pskills"></p></div>
+</aside>
+<main class="cv-main">
+<h2 id="pname"></h2><p id="prole"></p>
+<div id="expBlock" hidden><h3>BERUFSERFAHRUNG</h3><p id="pexp"></p></div>
+<div id="eduBlock" hidden><h3>AUSBILDUNG &amp; SCHULBILDUNG</h3><p id="pedu"></p></div>
+</main>
+</div>
+</section>
+
+<section id="letterPreview" class="preview" aria-label="Anschreiben-Vorschau">
+<div class="letter">
+<h2>Bewerbungsanschreiben</h2>
+<p>Du kannst den Text hier noch bearbeiten:</p>
+<textarea id="letterText" aria-label="Bearbeitbares Anschreiben"></textarea>
+<div id="printLetterText" aria-hidden="true"></div>
+</div>
+</section>
+
+<div class="actions" id="printActions" hidden>
+<button type="button" id="printButton">Als PDF speichern / Drucken</button>
+</div>
+
+<section id="feedbackArea" class="feedback" hidden>
+<h2>💚 Wie hat dir BewerbungsGlanz gefallen?</h2>
+<p>Deine Meinung ist freiwillig und hilft uns später, besser zu werden.</p>
+<div class="stars" id="stars">
+<button type="button" data-rating="1" aria-label="1 Stern">★</button>
+<button type="button" data-rating="2" aria-label="2 Sterne">★</button>
+<button type="button" data-rating="3" aria-label="3 Sterne">★</button>
+<button type="button" data-rating="4" aria-label="4 Sterne">★</button>
+<button type="button" data-rating="5" aria-label="5 Sterne">★</button>
+</div>
+<label for="feedbackText">Deine Erfahrung (freiwillig)</label>
+<textarea id="feedbackText" placeholder="Was hat dir gefallen? Was können wir verbessern?"></textarea>
+<p id="feedbackMessage" aria-live="polite"></p>
+<button type="button" id="feedbackCopy">Bewertung kopieren</button>
+<button type="button" id="feedbackSkip">Vielleicht später</button>
+<p><small>Demo: Bewertungen werden nicht versendet oder gespeichert.</small></p>
+</section>
+
+<footer>
+<p>© BewerbungsGlanz · Demo-Version</p>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<p><small>Rechtliche Seiten sind noch Entwürfe. Kein kommerzielles Angebot.</small></p>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const value=id=>$(id).value.trim();
+const put=(id,text)=>$(id).textContent=text;
+const show=(id,text)=>$(id).hidden=!text;
+let activePreview=null;
+let selectedRating=0;
+
+function switchTab(type){
+const cv=type==='cv';
+$('cvFormArea').hidden=!cv;
+$('letterFormArea').hidden=cv;
+$('cvTab').setAttribute('aria-pressed',String(cv));
+$('letterTab').setAttribute('aria-pressed',String(!cv));
+$('cvPreview').classList.remove('visible');
+$('letterPreview').classList.remove('visible');
+$('printActions').hidden=true;
+$('feedbackArea').hidden=true;
+activePreview=null;
+}
+
+$('cvTab').onclick=()=>switchTab('cv');
+$('letterTab').onclick=()=>switchTab('letter');
+
+document.querySelectorAll('[data-theme]').forEach(button=>{
+button.onclick=()=>{
+document.querySelectorAll('[data-theme]').forEach(b=>
+b.setAttribute('aria-pressed',String(b===button)));
+$('cvPreview').classList.remove('cv-modern','cv-classic');
+if(button.dataset.theme==='modern')$('cvPreview').classList.add('cv-modern');
+if(button.dataset.theme==='classic')$('cvPreview').classList.add('cv-classic');
+};
+});
+
+$('haslicense').onchange=()=>{
+$('licenseOptions').hidden=!$('haslicense').checked;
+};
+
+function finish(type){
+$('cvPreview').classList.toggle('visible',type==='cv');
+$('letterPreview').classList.toggle('visible',type==='letter');
+$('printActions').hidden=false;
+$('feedbackArea').hidden=false;
+activePreview=type;
+$(type==='cv'?'cvPreview':'letterPreview').scrollIntoView({behavior:'smooth'});
+}
+
+$('cvform').onsubmit=e=>{
+e.preventDefault();
+put('pname',[value('first'),value('last')].filter(Boolean).join(' '));
+put('prole',value('role'));
+
+put('pcontact',[
+value('street'),
+[value('zip'),value('city')].filter(Boolean).join(' '),
+value('phone'),value('email')
+].filter(Boolean).join('\n'));
+
+const personal=[
+value('birth')?'Geboren: '+value('birth'):'',
+value('birthplace')?'Geburtsort: '+value('birthplace'):''
+].filter(Boolean).join('\n');
+put('ppersonal',personal);
+show('personalBlock',personal);
+
+const license=$('haslicense').checked?
+Array.from(document.querySelectorAll('#licenseOptions input:checked'))
+.map(x=>x.value).join(', '):'';
+put('plicense',license?'Klasse '+license:'');
+show('licenseBlock',license);
+
+[
+['skills','pskills','skillsBlock'],
+['experience','pexp','expBlock'],
+['education','pedu','eduBlock']
+].forEach(([source,target,block])=>{
+put(target,value(source));
+show(block,value(source));
+});
+
+finish('cv');
+};
+
+function sentence(text){
+ let s=text.trim().replace(/\s+/g,' ');
+ if(!s)return '';
+ s=s.charAt(0).toUpperCase()+s.slice(1);
+ return /[.!?]$/.test(s)?s:s+'.';
+}
+function salutation(person){
+ const p=person.trim();
+ if(!p)return 'Sehr geehrte Damen und Herren,';
+ if(/^frau\s+/i.test(p))return 'Sehr geehrte '+p.replace(/^frau/i,'Frau')+',';
+ if(/^herr(n)?\s+/i.test(p))return 'Sehr geehrter Herr '+p.replace(/^herr(n)?\s+/i,'')+',';
+ return 'Guten Tag '+p+',';
+}
+function makeLetter(){
+ const name=value('lfname');
+ const company=value('lcompany');
+ const role=value('lrole');
+ const person=value('lperson');
+ const city=value('lcity');
+ const date=value('ldate');
+ const style=value('lstyle');
+ const situation=value('lsituation');
+ const why=sentence(value('lwhy'));
+ const exp=sentence(value('lexp'));
+ const strength=sentence(value('lstrength'));
+ const ad=value('lad').toLowerCase();
+ const starts={
+ classic:'mit großem Interesse bewerbe ich mich um die Stelle als '+role+' bei '+company+'.',
+ modern:'die ausgeschriebene Position als '+role+' bei '+company+' hat mein Interesse geweckt. Gerne möchte ich Ihr Team unterstützen.',
+ personal:'gerne bewerbe ich mich bei Ihnen als '+role+'. Die Möglichkeit, Ihr Team zu unterstützen, spricht mich sehr an.'
+ };
+ const situations={
+ experienced:'Meine bisherigen beruflichen Erfahrungen möchte ich gerne in diese Position einbringen.',
+ change:'Ich möchte mich beruflich neu orientieren und bin motiviert, mich in die neuen Aufgaben einzuarbeiten.',
+ beginner:'Ich freue mich darauf, meine Kenntnisse einzusetzen und mich beruflich weiterzuentwickeln.'
+ };
+ const ends={
+ classic:'Über eine Einladung zu einem persönlichen Gespräch freue ich mich sehr.',
+ modern:'Gerne überzeuge ich Sie in einem persönlichen Gespräch von meiner Motivation.',
+ personal:'Ich würde mich freuen, Sie persönlich kennenzulernen.'
+ };
+ // Anzeige nur als Themenhinweis nutzen, keine Fähigkeiten erfinden.
+ const topics=[];
+ if(/team|zusammenarbeit/.test(ad))topics.push('Zusammenarbeit im Team');
+ if(/hygiene|haccp|lebensmittel/.test(ad))topics.push('sorgfältiges Arbeiten und Hygiene');
+ if(/kunden|service|beratung/.test(ad))topics.push('Kundenorientierung');
+ if(/qualität|kontrolle|prüfung/.test(ad))topics.push('Qualitätsbewusstsein');
+ if(/organisation|planung|struktur/.test(ad))topics.push('Organisation');
+ if(/zuverlässig|pünktlich/.test(ad))topics.push('Zuverlässigkeit');
+ let adLine='';
+ if(topics.length){
+   const t=topics.slice(0,2).join(' und ');
+   adLine='In Ihrer Stellenanzeige sprechen Sie unter anderem '+t+' an. Mit diesen Anforderungen möchte ich mich gerne näher auseinandersetzen.';
+ }
+ const paragraphs=[starts[style],why,situations[situation],exp,strength,adLine,ends[style]].filter(Boolean);
+ const formattedDate=date?new Date(date+'T12:00:00').toLocaleDateString('de-DE'):'';
+ return [name,'',company,city,formattedDate,'','Bewerbung als '+role,'',salutation(person),'',paragraphs.join('\n\n'),'','Mit freundlichen Grüßen',name].filter((x,i,a)=>true).join('\n');
+}
+$('letterform').onsubmit=e=>{
+ e.preventDefault();
+ $('letterText').value=makeLetter();
+ finish('letter');
+ resizeLetter();
+};
+
+function resizeLetter(){
+const field=$('letterText');
+field.style.height='auto';
+field.style.height=field.scrollHeight+5+'px';
+}
+
+$('letterText').addEventListener('input',resizeLetter);
+
+$('printButton').onclick=()=>{
+if(!activePreview)return;
+const target=$(activePreview==='cv'?'cvPreview':'letterPreview');
+target.classList.add('print-target');
+if(activePreview==='letter'){$('printLetterText').textContent=$('letterText').value;resizeLetter();}
+window.print();
+};
+
+window.addEventListener('afterprint',()=>{
+document.querySelectorAll('.print-target').forEach(el=>
+el.classList.remove('print-target'));
+});
+
+document.querySelectorAll('[data-rating]').forEach(button=>{
+button.onclick=()=>{
+selectedRating=Number(button.dataset.rating);
+document.querySelectorAll('[data-rating]').forEach(b=>{
+b.classList.toggle('active',Number(b.dataset.rating)<=selectedRating);
+});
+};
+});
+
+$('feedbackCopy').onclick=async()=>{
+if(!selectedRating){
+put('feedbackMessage','Bitte wähle zuerst eine Sternebewertung.');
+return;
+}
+const text=selectedRating+'/5 Sterne\n'+value('feedbackText');
+try{
+await navigator.clipboard.writeText(text);
+put('feedbackMessage','Bewertung kopiert! Du kannst sie jetzt selbst weitergeben.');
+}catch{
+put('feedbackMessage','Automatisches Kopieren nicht möglich. Bitte den Text manuell kopieren.');
+}
+};
+
+$('feedbackSkip').onclick=()=>{
+$('feedbackArea').hidden=true;
+};
+</script>
+</body>
+</html>
