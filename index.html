@@ -6,97 +6,85 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BewerbungsGlanz – Deine Zukunft beginnt hier</title>
 <style>
-:root{--green:#567d6b;--dark:#263c32;--cream:#faf8f3;--pale:#eaf2eb}
+:root{--green:#567d6b;--dark:#263c32;--cream:#faf8f3}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:var(--dark);line-height:1.45}
-header{background:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px}
-header strong{font-size:22px;color:var(--green)}
-nav a{margin-left:16px;color:inherit;text-decoration:none}
-.hero{text-align:center;padding:70px 20px;background:linear-gradient(135deg,#e2eee6,#faf8f3)}
-.hero h1{font-size:clamp(30px,5vw,50px);max-width:780px;margin:10px auto}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:var(--dark);line-height:1.5}
+header{background:white;padding:20px 5%;display:flex;justify-content:space-between;gap:15px;align-items:center}
+header strong{color:var(--green);font-size:23px}
+nav a{margin-left:14px;color:var(--dark);text-decoration:none}
+.hero{text-align:center;padding:65px 20px;background:linear-gradient(135deg,#e2eee6,#faf8f3)}
+.hero h1{font-size:clamp(30px,5vw,50px);max-width:750px;margin:10px auto}
 .hero p{max-width:650px;margin:15px auto 25px}
-.button,button{background:var(--green);color:white;border:0;border-radius:9px;padding:12px 20px;cursor:pointer;font-weight:bold;text-decoration:none;display:inline-block}
-.button:hover,button:hover{background:#3d6151}
-.wrap{max-width:1050px;margin:auto;padding:45px 20px}
+button,.button{background:var(--green);color:white;border:0;border-radius:9px;padding:12px 19px;font:inherit;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+button:hover,.button:hover{background:#3d6151}
+.wrap{max-width:1000px;margin:auto;padding:45px 20px}
 h2{text-align:center}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:white;border:1px solid #dde6de;border-radius:15px;padding:22px}
-.price{font-size:27px;font-weight:bold;color:var(--green)}
-.form{max-width:780px;margin:20px auto;background:white;padding:28px;border-radius:15px;border:1px solid #dde6de}
-.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
-label{display:block;font-weight:bold;margin:14px 0 6px}
-input,textarea,select{width:100%;padding:11px;border:1px solid #b9cabe;border-radius:7px;font:inherit}
-textarea{min-height:100px}
-fieldset{border:1px solid #d6e2d8;border-radius:10px;margin:20px 0;padding:14px}
-legend{font-weight:bold;padding:0 6px}
-.radio-line,.check-grid{display:flex;flex-wrap:wrap;gap:12px 18px}
-.radio-line label,.check-grid label{display:flex;align-items:center;gap:6px;font-weight:normal;margin:6px 0}
-.radio-line input,.check-grid input{width:auto}
-.notice{background:var(--pale);padding:13px;border-radius:9px;margin:20px 0;font-size:14px}
-small{color:#61736a}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card,.form,.feedback{background:white;border:1px solid #dce7dd;border-radius:15px;padding:23px}
+.price{font-size:26px;font-weight:bold;color:var(--green)}
+.form{max-width:780px;margin:20px auto}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+label{display:block;font-weight:bold;margin:13px 0 5px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #b9cabe;border-radius:8px;font:inherit}
+textarea{min-height:95px}
+.notice{background:#edf4ee;padding:13px;border-radius:9px;margin:20px 0;font-size:14px}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+.tabs button[aria-pressed="false"]{background:#e4ece5;color:var(--dark)}
+.template-options{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.template-options button[aria-pressed="false"]{background:#e4ece5;color:var(--dark)}
+fieldset{border:1px solid #dce7dd;border-radius:10px;margin:20px 0;padding:15px}
+legend{font-weight:bold}
+.check-grid{display:flex;flex-wrap:wrap;gap:12px}
+.check-grid label{font-weight:normal;margin:0}
+.check-grid input{width:auto}
 [hidden]{display:none!important}
+.preview{display:none;background:white;width:210mm;max-width:100%;min-height:297mm;margin:25px auto;box-shadow:0 4px 20px #0002;overflow-wrap:anywhere}
+.preview.visible{display:block}
+.cv-layout{display:grid;grid-template-columns:30% 70%;min-height:297mm}
+.cv-side{background:#567d6b;color:white;padding:35px 20px}
+.cv-side h3{border-bottom:1px solid #ffffff80;padding-bottom:7px;font-size:14px}
+.cv-side p{font-size:13px;white-space:pre-line}
+.cv-main{padding:40px 30px}
+.cv-main h2{text-align:left;color:#567d6b;font-size:29px;margin:0}
+.cv-main h3{color:#567d6b;border-bottom:1px solid #ddd;padding-bottom:7px;margin-top:25px}
+.cv-main p{white-space:pre-line;font-size:14px}
+.cv-modern .cv-layout{display:flex;flex-direction:column}
+.cv-modern .cv-main{order:1}
+.cv-modern .cv-side{order:2;background:#edf0f2;color:#34414b}
+.cv-modern .cv-main h2,.cv-modern .cv-main h3{color:#34414b}
+.cv-classic .cv-side{background:#eee5da;color:#514438}
+.cv-classic .cv-main h2,.cv-classic .cv-main h3{color:#88705c;font-family:Georgia,serif}
+.letter{padding:45px 55px;font-family:Arial,sans-serif}
+.letter h2{text-align:left;color:#567d6b}
+.letter textarea{border:1px solid #ddd;min-height:650px;line-height:1.7;resize:vertical}
 .actions{text-align:center;margin:20px}
-.cv-page{--accent:#567d6b;display:none;max-width:794px;min-height:1050px;margin:28px auto;background:#fff;box-shadow:0 4px 20px #0002;grid-template-columns:30% 70%;overflow-wrap:anywhere}
-.cv-page.visible{display:grid}
-.cv-side{background:var(--accent);color:white;padding:40px 22px}
-.cv-side h3{font-size:15px;letter-spacing:.06em;border-bottom:1px solid #ffffff80;padding-bottom:8px;margin:28px 0 14px}
-.cv-side p{font-size:13px;white-space:pre-line;margin:0 0 10px}
-.cv-main{padding:42px 34px}
-.cv-main h2{text-align:left;color:var(--accent);font-size:32px;margin:0 0 10px;overflow-wrap:anywhere}
-.cv-main .cv-role{font-size:16px;color:#5d6b62;margin-bottom:35px}
-.cv-main h3{font-size:17px;color:var(--accent);border-bottom:1px solid #c8d9cb;padding-bottom:8px;margin-top:28px}
-.cv-main p{white-space:pre-line;font-size:14px;line-height:1.5}
-.template-picker{max-width:780px;margin:0 auto 25px}
-.template-picker h3{text-align:center}
-.template-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.template-choice{background:#fff;border:2px solid #d7e2d9;border-radius:12px;padding:13px;text-align:left;cursor:pointer;color:var(--dark);font-weight:normal}
-.template-choice[aria-pressed="true"]{border-color:var(--green);box-shadow:0 0 0 2px #567d6b33}
-.template-choice strong{display:block;margin:9px 0 3px}
-.template-choice small{display:block}
-.template-thumb{height:94px;background:#f6f7f5;border:1px solid #e0e4df;border-radius:5px;display:flex;overflow:hidden}
-.template-thumb i{width:33%;background:#567d6b}
-.template-thumb b{display:block;flex:1;padding:14px 8px;font-size:9px;color:#789}
-.template-choice[data-template="modern"] .template-thumb i{width:100%;height:25%;background:#2b3439}
-.template-choice[data-template="modern"] .template-thumb{display:block}
-.template-choice[data-template="classic"] .template-thumb i{width:9%;background:#c9b39c}
-.template-choice[data-template="classic"] .template-thumb{background:#fffdf9}
-.cv-page.theme-modern{--accent:#34414b;grid-template-columns:1fr}
-.cv-page.theme-modern .cv-side{background:#f1f3f4;color:#34414b;grid-row:2;padding:22px 35px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}
-.cv-page.theme-modern .cv-side h3{border-color:#ccd3d8;margin-top:8px}
-.cv-page.theme-modern .cv-main{grid-row:1;padding-bottom:12px}
-.cv-page.theme-modern .cv-main h2{border-bottom:3px solid #34414b;padding-bottom:12px}
-.cv-page.theme-classic{--accent:#88705c;grid-template-columns:25% 75%;background:#fffdf9}
-.cv-page.theme-classic .cv-side{background:#f0e9df;color:#4e4035}
-.cv-page.theme-classic .cv-side h3{border-color:#a89583}
-.cv-page.theme-classic .cv-main h2{font-family:Georgia,serif}
-.cv-page.theme-classic .cv-main h3{font-family:Georgia,serif}
-footer{text-align:center;background:var(--dark);color:white;padding:26px 20px;font-size:14px}
+.feedback{max-width:600px;margin:35px auto;text-align:center}
+.stars{display:flex;justify-content:center;gap:5px}
+.stars button{background:transparent;color:#aaa;font-size:30px;padding:3px 8px}
+.stars button.active{color:#e0a536}
+footer{text-align:center;background:var(--dark);color:white;padding:25px}
+footer a{color:white;margin:0 10px}
 @media(max-width:700px){
 header{display:block;text-align:center}
 nav{margin-top:10px}
 .cards,.fields{grid-template-columns:1fr}
-.template-options{grid-template-columns:1fr}
-.template-thumb{height:65px}
-.form{padding:18px}
-.cv-page{grid-template-columns:35% 65%;min-height:0}
-.cv-side{padding:24px 12px}
-.cv-main{padding:24px 15px}
-.cv-main h2{font-size:23px}
+.cv-side{padding:18px 10px}
+.cv-main{padding:20px 12px}
+.cv-main h2{font-size:22px}
+.letter{padding:20px}
 }
 @media print{
 @page{size:A4;margin:0}
-header,.hero,.wrap,footer,.actions{display:none!important}
-body{background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.cv-page,.cv-page.visible{display:grid!important;width:210mm;max-width:none;min-height:297mm;margin:0;box-shadow:none;grid-template-columns:30% 70%;break-inside:avoid}
-.cv-side{padding:15mm 6mm;background:var(--accent)!important;color:white!important}
-.cv-page.theme-modern{grid-template-columns:1fr!important}
-.cv-page.theme-modern .cv-side{background:#f1f3f4!important;color:#34414b!important;padding:6mm 10mm}
-.cv-page.theme-classic{grid-template-columns:25% 75%!important}
-.cv-page.theme-classic .cv-side{background:#f0e9df!important;color:#4e4035!important}
-.cv-main{padding:15mm 10mm}
-.cv-main h2{font-size:26pt}
-.cv-main p{font-size:10pt}
-.cv-side p{font-size:9pt}
+header,.hero,.wrap,footer,.actions,.feedback{display:none!important}
+body{background:white;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.preview{display:none!important;box-shadow:none;margin:0;width:210mm;max-width:none;min-height:297mm}
+.preview.print-target{display:block!important}
+.cv-layout{min-height:297mm}
+.cv-side{background:#567d6b!important;color:white!important}
+.cv-classic .cv-side{background:#eee5da!important;color:#514438!important}
+.cv-modern .cv-side{background:#edf0f2!important;color:#34414b!important}
+.letter{padding:20mm}
+.letter textarea{border:0;padding:0;resize:none;overflow:visible;min-height:0;height:auto}
 }
 </style>
 </head>
@@ -104,117 +92,63 @@ body{background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 <header>
 <strong>✨ BewerbungsGlanz</strong>
 <nav>
+<a href="#erstellen">Erstellen</a>
 <a href="#angebote">Angebote</a>
-<a href="#erstellen">Lebenslauf erstellen</a>
 </nav>
 </header>
 
 <section class="hero">
 <p>✨ DEIN DIGITALER BEWERBUNGSBEGLEITER</p>
 <h1>Deine Zukunft beginnt mit einer starken Bewerbung.</h1>
-<p>Gestalte deinen Lebenslauf modern und individuell. Einfach ausfüllen, Vorschau ansehen und als PDF speichern.</p>
-<a class="button" href="#erstellen">Jetzt kostenlos ausprobieren →</a>
+<p>Erstelle deinen Lebenslauf und dein Anschreiben. Einfach, modern und individuell.</p>
+<a href="#erstellen" class="button">Jetzt kostenlos ausprobieren →</a>
 </section>
 
 <section class="wrap" id="angebote">
-<h2>Unsere Angebote</h2>
+<h2>Unsere geplanten Angebote</h2>
 <div class="cards">
-<div class="card">
-<h3>Lebenslauf</h3>
-<p>Professionell und übersichtlich gestaltet.</p>
-<div class="price">9,99 €</div>
-<small>Geplanter Preis – noch kein Verkauf</small>
+<div class="card"><h3>Lebenslauf</h3><p>Professionelle Vorlagen</p><div class="price">9,99 €</div></div>
+<div class="card"><h3>Anschreiben</h3><p>Automatische Formulierung</p><div class="price">7,99 €</div></div>
+<div class="card"><h3>Premium</h3><p>Persönliche Überarbeitung</p><div class="price">29,99 €</div></div>
 </div>
-<div class="card">
-<h3>Anschreiben</h3>
-<p>Individuell passend zur Wunschstelle.</p>
-<div class="price">7,99 €</div>
-<small>KI-Funktion folgt später</small>
-</div>
-<div class="card">
-<h3>Premium-Service</h3>
-<p>Persönliche Überarbeitung deiner Unterlagen.</p>
-<div class="price">29,99 €</div>
-<small>Geplantes Angebot</small>
-</div>
-</div>
+<p style="text-align:center"><small>Nur geplante Preise. Kein Verkauf in dieser Demo.</small></p>
 </section>
 
 <section class="wrap" id="erstellen">
-<h2>Deinen Lebenslauf erstellen</h2>
-<div class="template-picker">
-<h3>1. Wähle deine Vorlage</h3>
-<div class="template-options" role="group" aria-label="Lebenslauf-Design">
-<button type="button" class="template-choice" data-template="elegant" aria-pressed="true">
-<span class="template-thumb"><i></i><b>────<br>────<br>────</b></span>
-<strong>Elegant</strong>
-<small>Salbeigrüne Seitenleiste</small>
-</button>
-<button type="button" class="template-choice" data-template="modern" aria-pressed="false">
-<span class="template-thumb"><i></i><b>────<br>────</b></span>
-<strong>Modern</strong>
-<small>Klare Linien und dunkles Grau</small>
-</button>
-<button type="button" class="template-choice" data-template="classic" aria-pressed="false">
-<span class="template-thumb"><i></i><b>────<br>────<br>────</b></span>
-<strong>Klassisch</strong>
-<small>Warmes Beige und elegante Schrift</small>
-</button>
-</div>
+<h2>Deine Bewerbungsunterlagen</h2>
+<p style="text-align:center">Wähle aus, was du erstellen möchtest.</p>
+<div class="tabs">
+<button type="button" id="cvTab" aria-pressed="true">Lebenslauf</button>
+<button type="button" id="letterTab" aria-pressed="false">Anschreiben</button>
 </div>
 
-<p style="text-align:center">Kostenlose Demo – bitte ausschließlich erfundene Daten eingeben.</p>
+<div id="cvFormArea" class="form">
+<h3>Lebenslauf erstellen</h3>
+<p>Wähle dein Design:</p>
+<div class="template-options">
+<button type="button" data-theme="elegant" aria-pressed="true">🌿 Elegant</button>
+<button type="button" data-theme="modern" aria-pressed="false">Modern</button>
+<button type="button" data-theme="classic" aria-pressed="false">Klassisch</button>
+</div>
 
-<div class="form">
 <form id="cvform">
 <h3>Persönliche Daten</h3>
 <div class="fields">
-<div>
-<label for="first">Vorname *</label>
-<input id="first" required placeholder="Max">
-</div>
-<div>
-<label for="last">Nachname *</label>
-<input id="last" required placeholder="Mustermann">
-</div>
-<div>
-<label for="birth">Geburtsdatum (freiwillig)</label>
-<input id="birth" placeholder="TT.MM.JJJJ" inputmode="numeric">
-</div>
-<div>
-<label for="birthplace">Geburtsort (freiwillig)</label>
-<input id="birthplace" placeholder="Musterstadt">
-</div>
-<div>
-<label for="street">Straße und Hausnummer</label>
-<input id="street" placeholder="Musterstraße 12">
-</div>
-<div>
-<label for="zip">Postleitzahl</label>
-<input id="zip" placeholder="12345">
-</div>
-<div>
-<label for="city">Wohnort</label>
-<input id="city" placeholder="Musterstadt">
-</div>
-<div>
-<label for="phone">Telefonnummer</label>
-<input id="phone" type="tel" placeholder="0151 12345678">
-</div>
-<div>
-<label for="email">E-Mail-Adresse</label>
-<input id="email" type="email" placeholder="max@beispiel.de">
-</div>
+<div><label for="first">Vorname *</label><input id="first" required></div>
+<div><label for="last">Nachname *</label><input id="last" required></div>
+<div><label for="birth">Geburtsdatum</label><input id="birth" placeholder="TT.MM.JJJJ"></div>
+<div><label for="birthplace">Geburtsort</label><input id="birthplace"></div>
+<div><label for="street">Straße und Hausnummer</label><input id="street"></div>
+<div><label for="zip">Postleitzahl</label><input id="zip"></div>
+<div><label for="city">Wohnort</label><input id="city"></div>
+<div><label for="phone">Telefonnummer</label><input id="phone" type="tel"></div>
+<div><label for="email">E-Mail</label><input id="email" type="email"></div>
 </div>
 
 <fieldset>
 <legend>Führerschein (freiwillig)</legend>
-<div class="radio-line">
-<label><input type="radio" name="haslicense" value="no" checked> Nein / keine Angabe</label>
-<label><input type="radio" name="haslicense" value="yes"> Ja</label>
-</div>
+<label><input type="checkbox" id="haslicense" style="width:auto"> Führerschein vorhanden</label>
 <div id="licenseOptions" hidden>
-<p>Welche Klassen sind vorhanden?</p>
 <div class="check-grid">
 <label><input type="checkbox" value="AM"> AM</label>
 <label><input type="checkbox" value="A1"> A1</label>
@@ -231,130 +165,311 @@ body{background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 </div>
 </fieldset>
 
-<h3>Beruflicher Werdegang</h3>
 <label for="role">Gewünschter Beruf *</label>
-<input id="role" required placeholder="z. B. Produktionsmitarbeiterin">
+<input id="role" required>
 <label for="experience">Berufserfahrung</label>
-<textarea id="experience" placeholder="Zeitraum, Arbeitgeber, Position und Tätigkeiten"></textarea>
+<textarea id="experience"></textarea>
 <label for="education">Ausbildung und Schulbildung</label>
-<textarea id="education" placeholder="Zeitraum, Schule/Betrieb und Abschluss"></textarea>
+<textarea id="education"></textarea>
 <label for="skills">Kenntnisse und Stärken</label>
-<textarea id="skills" placeholder="z. B. Qualitätskontrolle, Teamfähigkeit"></textarea>
+<textarea id="skills"></textarea>
+
+<div class="notice">Kostenlose Demo. Bitte nur erfundene Daten verwenden.</div>
+<button type="submit">Lebenslauf erstellen</button>
+</form>
+</div>
+
+<div id="letterFormArea" class="form" hidden>
+<h3>✨ Anschreiben automatisch erstellen</h3>
+<p>Beantworte ein paar Fragen. BewerbungsGlanz formuliert daraus einen ersten Entwurf.</p>
+<form id="letterform">
+<div class="fields">
+<div><label for="lfname">Dein Name *</label><input id="lfname" required placeholder="Max Mustermann"></div>
+<div><label for="lcompany">Unternehmen *</label><input id="lcompany" required placeholder="Muster GmbH"></div>
+<div><label for="lrole">Gewünschte Stelle *</label><input id="lrole" required placeholder="Produktionsmitarbeiter"></div>
+<div><label for="lperson">Ansprechpartner (optional)</label><input id="lperson" placeholder="Frau Müller"></div>
+<div><label for="lcity">Ort des Unternehmens</label><input id="lcity" placeholder="Saarbrücken"></div>
+<div><label for="ldate">Datum</label><input id="ldate" type="date"></div>
+</div>
+
+<label for="lwhy">Warum möchtest du dort arbeiten? *</label>
+<textarea id="lwhy" required placeholder="Mich interessieren die Aufgaben und ich möchte meine Erfahrung einbringen."></textarea>
+
+<label for="lexp">Welche Erfahrungen bringst du mit?</label>
+<textarea id="lexp" placeholder="Ich habe bereits in der Produktion gearbeitet und Anlagen bedient."></textarea>
+
+<label for="lstrength">Was sind deine Stärken?</label>
+<textarea id="lstrength" placeholder="Ich arbeite zuverlässig, sorgfältig und gerne im Team."></textarea>
+
+<label for="lstyle">Wie soll das Anschreiben klingen?</label>
+<select id="lstyle">
+<option value="classic">Klassisch und professionell</option>
+<option value="modern">Modern und selbstbewusst</option>
+<option value="personal">Freundlich und persönlich</option>
+</select>
 
 <div class="notice">
-Diese Demo arbeitet ohne KI, Konto oder Bezahlung. Eingaben werden nur in deinem Browser verarbeitet und nicht an uns übertragen. Bitte keine echten personenbezogenen Daten eingeben.
+Der Text wird automatisch aus deinen Angaben zusammengestellt.
+Es ist noch keine KI eingebaut. Prüfe den Entwurf vor einer echten Bewerbung.
+Bitte nur erfundene Testdaten verwenden.
 </div>
-<button type="submit">Lebenslauf-Vorschau erstellen</button>
+<button type="submit">Anschreiben formulieren</button>
 </form>
 </div>
 </section>
 
-<section id="preview" class="cv-page" aria-label="Lebenslauf-Vorschau" aria-live="polite">
+<section id="cvPreview" class="preview" aria-label="Lebenslauf-Vorschau">
+<div class="cv-layout">
 <aside class="cv-side">
-<h3>KONTAKT</h3>
-<p id="pcontact"></p>
-<div id="personalBlock" hidden>
-<h3>PERSÖNLICHES</h3>
-<p id="ppersonal"></p>
-</div>
-<div id="licenseBlock" hidden>
-<h3>FÜHRERSCHEIN</h3>
-<p id="plicenses"></p>
-</div>
-<div id="skillsBlock" hidden>
-<h3>KENNTNISSE &amp; STÄRKEN</h3>
-<p id="pskills"></p>
-</div>
+<h3>KONTAKT</h3><p id="pcontact"></p>
+<div id="personalBlock" hidden><h3>PERSÖNLICHES</h3><p id="ppersonal"></p></div>
+<div id="licenseBlock" hidden><h3>FÜHRERSCHEIN</h3><p id="plicense"></p></div>
+<div id="skillsBlock" hidden><h3>KENNTNISSE</h3><p id="pskills"></p></div>
 </aside>
 <main class="cv-main">
-<h2 id="pname"></h2>
-<p class="cv-role" id="prole"></p>
-<div id="experienceBlock" hidden>
-<h3>BERUFSERFAHRUNG</h3>
-<p id="pexperience"></p>
-</div>
-<div id="educationBlock" hidden>
-<h3>AUSBILDUNG &amp; SCHULBILDUNG</h3>
-<p id="peducation"></p>
-</div>
+<h2 id="pname"></h2><p id="prole"></p>
+<div id="expBlock" hidden><h3>BERUFSERFAHRUNG</h3><p id="pexp"></p></div>
+<div id="eduBlock" hidden><h3>AUSBILDUNG &amp; SCHULBILDUNG</h3><p id="pedu"></p></div>
 </main>
+</div>
+</section>
+
+<section id="letterPreview" class="preview" aria-label="Anschreiben-Vorschau">
+<div class="letter">
+<h2>Bewerbungsanschreiben</h2>
+<p>Du kannst den Text hier noch bearbeiten:</p>
+<textarea id="letterText" aria-label="Bearbeitbares Anschreiben"></textarea>
+</div>
 </section>
 
 <div class="actions" id="printActions" hidden>
-<button type="button" onclick="window.print()">Als PDF speichern / Drucken</button>
+<button type="button" id="printButton">Als PDF speichern / Drucken</button>
 </div>
 
+<section id="feedbackArea" class="feedback" hidden>
+<h2>💚 Wie hat dir BewerbungsGlanz gefallen?</h2>
+<p>Deine Meinung ist freiwillig und hilft uns später, besser zu werden.</p>
+<div class="stars" id="stars">
+<button type="button" data-rating="1" aria-label="1 Stern">★</button>
+<button type="button" data-rating="2" aria-label="2 Sterne">★</button>
+<button type="button" data-rating="3" aria-label="3 Sterne">★</button>
+<button type="button" data-rating="4" aria-label="4 Sterne">★</button>
+<button type="button" data-rating="5" aria-label="5 Sterne">★</button>
+</div>
+<label for="feedbackText">Deine Erfahrung (freiwillig)</label>
+<textarea id="feedbackText" placeholder="Was hat dir gefallen? Was können wir verbessern?"></textarea>
+<p id="feedbackMessage" aria-live="polite"></p>
+<button type="button" id="feedbackCopy">Bewertung kopieren</button>
+<button type="button" id="feedbackSkip">Vielleicht später</button>
+<p><small>Demo: Bewertungen werden nicht versendet oder gespeichert.</small></p>
+</section>
+
 <footer>
-© BewerbungsGlanz · Demo-Version · Noch kein kommerzielles Angebot
-<p>Vor einem öffentlichen Verkaufsstart werden Impressum, Datenschutzinformationen und weitere rechtliche Angaben ergänzt.</p>
+<p>© BewerbungsGlanz · Demo-Version</p>
+<a href="impressum.html">Impressum</a>
+<a href="datenschutz.html">Datenschutz</a>
+<p><small>Rechtliche Seiten sind noch Entwürfe. Kein kommerzielles Angebot.</small></p>
 </footer>
 
 <script>
 const $=id=>document.getElementById(id);
+const value=id=>$(id).value.trim();
+const put=(id,text)=>$(id).textContent=text;
+const show=(id,text)=>$(id).hidden=!text;
+let activePreview=null;
+let selectedRating=0;
 
-document.querySelectorAll('.template-choice').forEach(button=>
-button.addEventListener('click',()=>{
-document.querySelectorAll('.template-choice').forEach(b=>
+function switchTab(type){
+const cv=type==='cv';
+$('cvFormArea').hidden=!cv;
+$('letterFormArea').hidden=cv;
+$('cvTab').setAttribute('aria-pressed',String(cv));
+$('letterTab').setAttribute('aria-pressed',String(!cv));
+$('cvPreview').classList.remove('visible');
+$('letterPreview').classList.remove('visible');
+$('printActions').hidden=true;
+$('feedbackArea').hidden=true;
+activePreview=null;
+}
+
+$('cvTab').onclick=()=>switchTab('cv');
+$('letterTab').onclick=()=>switchTab('letter');
+
+document.querySelectorAll('[data-theme]').forEach(button=>{
+button.onclick=()=>{
+document.querySelectorAll('[data-theme]').forEach(b=>
 b.setAttribute('aria-pressed',String(b===button)));
-const preview=$('preview');
-preview.classList.remove('theme-modern','theme-classic');
-if(button.dataset.template!=='elegant')
-preview.classList.add('theme-'+button.dataset.template);
-}));
+$('cvPreview').classList.remove('cv-modern','cv-classic');
+if(button.dataset.theme==='modern')$('cvPreview').classList.add('cv-modern');
+if(button.dataset.theme==='classic')$('cvPreview').classList.add('cv-classic');
+};
+});
 
-document.querySelectorAll('input[name="haslicense"]').forEach(el=>
-el.addEventListener('change',()=>{
-$('licenseOptions').hidden=
-document.querySelector('input[name="haslicense"]:checked').value!=='yes';
-}));
+$('haslicense').onchange=()=>{
+$('licenseOptions').hidden=!$('haslicense').checked;
+};
 
-$('cvform').addEventListener('submit',function(e){
+function finish(type){
+$('cvPreview').classList.toggle('visible',type==='cv');
+$('letterPreview').classList.toggle('visible',type==='letter');
+$('printActions').hidden=false;
+$('feedbackArea').hidden=false;
+activePreview=type;
+$(type==='cv'?'cvPreview':'letterPreview').scrollIntoView({behavior:'smooth'});
+}
+
+$('cvform').onsubmit=e=>{
 e.preventDefault();
-const val=id=>$(id).value.trim();
-const put=(id,value)=>{$(id).textContent=value;};
-const show=(id,value)=>{$(id).hidden=!value;};
+put('pname',[value('first'),value('last')].filter(Boolean).join(' '));
+put('prole',value('role'));
 
-put('pname',[val('first'),val('last')].filter(Boolean).join(' '));
-put('prole',val('role'));
-
-const contact=[
-[val('street'),[val('zip'),val('city')].filter(Boolean).join(' ')].filter(Boolean).join('\n'),
-val('phone'),
-val('email')
-].filter(Boolean).join('\n');
-
-put('pcontact',contact);
+put('pcontact',[
+value('street'),
+[value('zip'),value('city')].filter(Boolean).join(' '),
+value('phone'),value('email')
+].filter(Boolean).join('\n'));
 
 const personal=[
-val('birth')?'Geboren: '+val('birth'):'',
-val('birthplace')?'Geburtsort: '+val('birthplace'):''
+value('birth')?'Geboren: '+value('birth'):'',
+value('birthplace')?'Geburtsort: '+value('birthplace'):''
 ].filter(Boolean).join('\n');
-
 put('ppersonal',personal);
 show('personalBlock',personal);
 
-const license=
-document.querySelector('input[name="haslicense"]:checked').value==='yes'
-?Array.from(document.querySelectorAll('#licenseOptions input:checked'))
-.map(el=>el.value).join(', ')
-:'';
-
-put('plicenses',license?'Klasse '+license:'');
+const license=$('haslicense').checked?
+Array.from(document.querySelectorAll('#licenseOptions input:checked'))
+.map(x=>x.value).join(', '):'';
+put('plicense',license?'Klasse '+license:'');
 show('licenseBlock',license);
 
 [
 ['skills','pskills','skillsBlock'],
-['experience','pexperience','experienceBlock'],
-['education','peducation','educationBlock']
+['experience','pexp','expBlock'],
+['education','pedu','eduBlock']
 ].forEach(([source,target,block])=>{
-put(target,val(source));
-show(block,val(source));
+put(target,value(source));
+show(block,value(source));
 });
 
-$('preview').classList.add('visible');
-$('printActions').hidden=false;
-$('preview').scrollIntoView({behavior:'smooth'});
+finish('cv');
+};
+
+function sentence(text){
+let s=text.trim().replace(/\s+/g,' ');
+if(!s)return '';
+s=s.charAt(0).toUpperCase()+s.slice(1);
+return /[.!?]$/.test(s)?s:s+'.';
+}
+
+function makeLetter(){
+const name=value('lfname');
+const company=value('lcompany');
+const role=value('lrole');
+const person=value('lperson');
+const city=value('lcity');
+const date=value('ldate');
+const style=value('lstyle');
+const why=sentence(value('lwhy'));
+const exp=sentence(value('lexp'));
+const strength=sentence(value('lstrength'));
+
+const greeting=person?
+'Sehr geehrte'+(/^(Herr|Herrn)\b/i.test(person)?'r':'')+' '+person.replace(/^(Herrn?)\s+/i,'Herr ') + ',':
+'Sehr geehrte Damen und Herren,';
+
+let intro='';
+let ending='';
+
+if(style==='classic'){
+intro='mit großem Interesse bewerbe ich mich bei Ihnen um die Stelle als '+role+'.';
+ending='Über die Einladung zu einem persönlichen Gespräch freue ich mich sehr.';
+}else if(style==='modern'){
+intro='die Position als '+role+' bei '+company+' hat mein Interesse geweckt. Gerne möchte ich mich mit meinen Fähigkeiten in Ihr Team einbringen.';
+ending='Ich freue mich darauf, Sie in einem persönlichen Gespräch von meiner Motivation zu überzeugen.';
+}else{
+intro='gerne möchte ich Teil Ihres Teams werden und bewerbe mich deshalb als '+role+'.';
+ending='Ich würde mich sehr freuen, Sie persönlich kennenzulernen.';
+}
+
+const paragraphs=[
+intro,
+why,
+exp,
+strength,
+ending
+].filter(Boolean);
+
+return [
+name,
+'',
+company,
+city,
+date,
+'',
+'Bewerbung als '+role,
+'',
+greeting,
+'',
+paragraphs.join('\n\n'),
+'',
+'Mit freundlichen Grüßen',
+name
+].join('\n');
+}
+
+$('letterform').onsubmit=e=>{
+e.preventDefault();
+$('letterText').value=makeLetter();
+finish('letter');
+};
+
+function resizeLetter(){
+const field=$('letterText');
+field.style.height='auto';
+field.style.height=field.scrollHeight+5+'px';
+}
+
+$('letterText').addEventListener('input',resizeLetter);
+
+$('printButton').onclick=()=>{
+if(!activePreview)return;
+const target=$(activePreview==='cv'?'cvPreview':'letterPreview');
+target.classList.add('print-target');
+if(activePreview==='letter')resizeLetter();
+window.print();
+};
+
+window.addEventListener('afterprint',()=>{
+document.querySelectorAll('.print-target').forEach(el=>
+el.classList.remove('print-target'));
 });
+
+document.querySelectorAll('[data-rating]').forEach(button=>{
+button.onclick=()=>{
+selectedRating=Number(button.dataset.rating);
+document.querySelectorAll('[data-rating]').forEach(b=>{
+b.classList.toggle('active',Number(b.dataset.rating)<=selectedRating);
+});
+};
+});
+
+$('feedbackCopy').onclick=async()=>{
+if(!selectedRating){
+put('feedbackMessage','Bitte wähle zuerst eine Sternebewertung.');
+return;
+}
+const text=selectedRating+'/5 Sterne\n'+value('feedbackText');
+try{
+await navigator.clipboard.writeText(text);
+put('feedbackMessage','Bewertung kopiert! Du kannst sie jetzt selbst weitergeben.');
+}catch{
+put('feedbackMessage','Automatisches Kopieren nicht möglich. Bitte den Text manuell kopieren.');
+}
+};
+
+$('feedbackSkip').onclick=()=>{
+$('feedbackArea').hidden=true;
+};
 </script>
 </body>
 </html>
